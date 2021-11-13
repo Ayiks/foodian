@@ -4,7 +4,11 @@ import { categoryModel } from "../models/category.js";
 const getAllCategories = async (req, res) => {
     try {
         const categoriesList = await categoryModel.find({});
-        return res.json(categoriesList)
+        return res.status(200).json({
+            status: true,
+            message: 'fetched succesfully',
+            data: categoriesList
+        })
     } catch (error) {
         console.log('Somthing went wrong: ', error);
         res.status(400).send('Failed to fetch data', error)
