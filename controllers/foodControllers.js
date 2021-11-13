@@ -4,7 +4,11 @@ import { Food } from "../models/food.js";
 const getAllFoods = async (req, res) => {
     try {
         const foodList = await Food.find({});
-        return res.json(foodList)
+        return res.status(200).json({
+            status: true,
+            message: 'fetched succesfully',
+            data: foodList
+        })
     } catch (error) {
         console.log('Somthing went wrong: ', error);
         res.status(400).send('Failed to fetch data', error)
