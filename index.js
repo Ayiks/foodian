@@ -15,7 +15,7 @@ app.use(express.json());
 app.use('/foods',foodRoute)
 app.use('/categories',createCategory)
 
-const port = 5006;
+const port = process.env.PORT || 5006;
 
 app.get('/', (req, res) => {
     console.log('Welcome to Foodian API')
